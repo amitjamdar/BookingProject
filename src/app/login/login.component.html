@@ -1,0 +1,16 @@
+<h4 class="row">MyBooking</h4>
+<div class="login-container">
+    <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+        <h5 class="login-header text-center" style="padding-bottom:10px;">Login</h5>
+        <div class="form-group">
+            <input class="form-control" type="email" placeholder="Email" formControlName="username">
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" type="password" placeholder="Password" formControlName="password">
+        </div>
+
+        <input class="btn btn-block" type="submit" value="Login">
+
+    </form>
+</div>

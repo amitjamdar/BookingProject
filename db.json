@@ -1,0 +1,99 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Amit Jamdar",
+      "username": "Amit",
+      "password": "Jamdar",
+      "email": "mohannalgirework@gmail.com",
+      "type": "employee"
+    },
+    {
+      "id": 2,
+      "name": "John D",
+      "username": "admin@persistent.com",
+      "password": "BookingAdmin",
+      "email": "johnd@gmail.com",
+      "type": "manager"
+    }
+  ],
+  "projectFeedback": [
+    {
+      "fname": "sawiy",
+      "lname": "Inamndar",
+      "eid": 98765,
+      "grade": "3.x",
+      "gender": "Female",
+      "odc": "ODC",
+      "project": "project3",
+      "id": 1,
+      "bu": "TECH"
+    },
+    {
+      "fname": "Adam",
+      "lname": "Bello",
+      "eid": 908374,
+      "grade": "4.x",
+      "gender": "Male",
+      "odc": "NON-ODC",
+      "project": "project1",
+      "id": 2,
+      "bu": "HEALTH"
+    },
+    {
+      "fname": "Nancy",
+      "lname": "Theasd",
+      "eid": 343232,
+      "grade": "3.x",
+      "gender": "Female",
+      "odc": "ODC",
+      "project": "project2",
+      "id": 3,
+      "bu": "BU"
+    },
+    {
+      "fname": "Jackuuu",
+      "lname": "Marlo",
+      "eid": 888,
+      "grade": "5.x",
+      "gender": "Male",
+      "odc": "NON-ODC",
+      "project": "project4",
+      "id": 4,
+      "bu": "HEALTH"
+    },
+    {
+      "fname": "Chris",
+      "lname": "Tmas",
+      "eid": 2211,
+      "grade": "3.x",
+      "gender": "Female",
+      "odc": "ODC",
+      "project": "project3",
+      "id": 5,
+      "bu": "BU"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "name": "project1",
+      "description": "description1"
+    },
+    {
+      "id": 2,
+      "name": "project2",
+      "description": "description2"
+    },
+    {
+      "id": 3,
+      "name": "project3",
+      "description": "description3"
+    },
+    {
+      "id": 4,
+      "name": "project4",
+      "description": "description4"
+    }
+  ]
+}

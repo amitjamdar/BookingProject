@@ -1,0 +1,17 @@
+.login-container {
+  /**/
+}
+
+.login-container h1,
+h2 {
+  text-align: center;
+}
+.btn{
+  background: #e15000;
+  color: #fff;
+}
+form {
+  height: 400px;
+  width: 400px;
+  margin: 12% auto;
+}

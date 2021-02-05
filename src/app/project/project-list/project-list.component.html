@@ -1,0 +1,144 @@
+<div class="m-1 text-right">
+    <span class="btn" (click)="onClick($event)">Add New Employee</span>
+</div>
+<div class="m-1 text-left"><h5>Employee Data</h5></div>
+<table class="table table-striped" >
+    <thead *ngIf = "projectFeedbackList.length > 0">
+        <tr class="thead">
+            <th scope="colHeads">FIRST NAME</th>
+            <th scope="colHeads">LAST NAME</th>
+            <th scope="colHeads">ID</th>
+            <th scope="colHeads">GRADE</th>
+            <th scope="colHeads">GENDER</th>
+            <th scope="colHeads">ODC/NONODC</th>
+            <th scope="colHeads">BU</th>
+            <th scope="colHeads">PROJECT</th>
+            <th scope="colHeads">ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let col of projectFeedbackList">
+            <td>{{col.fname}}</td>
+            <td>{{col.lname}}</td>
+            <td>{{col.eid}}</td>
+            <td>{{col.grade}}</td>
+            <td>{{col.gender}}</td>
+            <td>{{col.odc}}</td>
+            <td>{{col.bu}}</td>
+            <td>{{col.project}}</td>
+            <td>
+                <div class="btn-group dropright">
+                    <span type="button" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-ellipsis-v" aria-hidden="true" style="width: 20px;
+                        text-align: center;
+                        color: blue;"></i>
+                    </span>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item">view</a>
+                        <a (click)="feedbackEdit(col.id)" class="dropdown-item">Edit</a>
+                        <a class="dropdown-item">Activate/Deactivate</a>
+                        <a (click)="feedbackDelete(col.id)" class="dropdown-item">Delete</a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <div class="NotFound" *ngIf = "projectFeedbackList.length <= 0">No Employee Data Available</div>
+    </tbody>
+</table>
+<div class="modal" id="myModal" [style.display]="showModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5>Add New Employee</h5>
+                <button type="button" class="close" data-dismiss="modal" (click)="hide()">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="feedback-container1">
+                <form [formGroup]="feedbackForm" class="feedback-container" (ngSubmit)="addNewEmp()">
+            
+                    <div class="form-group">
+                        <label>FirstName</label>
+                        <input type="text" class="form-control" placeholder="FirstName" formControlName="fname" [ngClass]="{ 'is-invalid': submitted && f.fname.errors }"
+                        >
+                        <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+                            <div *ngIf="f.fname.errors.required">FirstName is required</div>
+                          </div> 
+                    </div>
+                    <div class="form-group">
+                        <label>LastName</label>
+                        <input class="form-control" type="text" placeholder="LastName" formControlName="lname" [ngClass]="{ 'is-invalid': submitted && f.lname.errors }">
+                        <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+                            <div *ngIf="f.lname.errors.required">LastName is required</div>
+                          </div> 
+                    </div>
+                    <div class="form-group">
+                        <label>ID</label>
+                        <input class="form-control" type="number" placeholder="Employee Id" formControlName="eid" [ngClass]="{ 'is-invalid': submitted && f.eid.errors }">
+                        <div *ngIf="submitted && f.eid.errors" class="invalid-feedback">
+                            <div *ngIf="f.eid.errors.required">EMP id is required</div>
+                          </div> 
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <select class="form-control" formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+                            <option value="">Select Gender</option>
+                            <option *ngFor="let gender of genderList" [value]="gender">{{gender}}</option>
+                        </select>
+                        <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                            <div *ngIf="f.gender.errors.required">Gender is required</div>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Grade</label>
+                        <select class="form-control" formControlName="grade" [ngClass]="{ 'is-invalid': submitted && f.grade.errors }">
+                            <option value="">Select GRADE</option>
+                            <option *ngFor="let grade of gradeList" [value]="grade">{{grade}}</option>
+                        </select>
+                        <div *ngIf="submitted && f.grade.errors" class="invalid-feedback">
+                            <div *ngIf="f.grade.errors.required">Select Grade is required</div>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Select BU</label>
+                        <select class="form-control" formControlName="bu" [ngClass]="{ 'is-invalid': submitted && f.bu.errors }">
+                            <option value="">Select BU</option>
+                            <option *ngFor="let bu of buList" [value]="bu">{{bu}}</option>
+                        </select>
+                        <div *ngIf="submitted && f.bu.errors" class="invalid-feedback">
+                            <div *ngIf="f.bu.errors.required">Select BU is required</div>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label>ODC/NonODC</label>
+                        <select class="form-control" formControlName="odc" [ngClass]="{ 'is-invalid': submitted && f.odc.errors }">
+                            <option value="">Select ODC</option>
+                            <option *ngFor="let odc of odcList" [value]="odc">{{odc}}</option>
+                        </select>
+                        <div *ngIf="submitted && f.odc.errors" class="invalid-feedback">
+                            <div *ngIf="f.odc.errors.required">Select ODC type is required</div>
+                          </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Project</label>
+                        <select class="form-control" formControlName="project" [ngClass]="{ 'is-invalid': submitted && f.project.errors }">
+                            <option value="">Select Project</option>
+                            <option *ngFor="let project of projectList" [value]="project.name">{{project.name}}</option>
+                        </select>
+                        
+                        <div *ngIf="submitted && f.project.errors" class="invalid-feedback">
+                            <div *ngIf="f.project.errors.required">Select project is required</div>
+                          </div>
+                    </div>
+                    <div class="text-right">
+                    <input class="btn btn-secondary mx-2" type="button" (click)="hide()" value="Cancel">
+                    <input class="btn btn-success mx-2" type="submit" value="Add">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Modal footer -->
+    </div>
+</div>

@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+h4{
+  background: #3761cc;
+  padding: 10px;
+  color: #fff;
+}
+.container{
+  background-color: #e1e1e1;
+  min-height: 1000px;
+}
+header{
+  background: #3761cc;
+  color: #fff;
+}
+.btn{
+  background: #e15000;
+  color: #fff;
+}
+.NotFound{
+  text-align: center;
+    margin: 20px;
+    background: #3761cc;
+    width: 300px;
+    margin: 0 auto;
+    padding: 125px 40px;
+    border-radius: 133px;
+    height: 251px;
+    color: #fff;
+}
+.navbar-light .navbar-nav .nav-link {
+  color:#fff;
+}
