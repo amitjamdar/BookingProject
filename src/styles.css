@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 h4{
   background: #3761cc;
@@ -16,18 +17,31 @@ header{
 .btn{
   background: #e15000;
   color: #fff;
+  line-height: 1;
+
 }
+.btn:hover{
+  background: none;
+  color: #e15000;
+  border: 1px solid;
+}
+.cancel{
+  background-color: #fff;
+  color:#e15000;
+}
+
 .NotFound{
-  text-align: center;
-    margin: 20px;
-    background: #3761cc;
+    text-align: center;
     width: 300px;
     margin: 0 auto;
-    padding: 125px 40px;
-    border-radius: 133px;
     height: 251px;
     color: #fff;
+    background-image: url("./assets/notFound.PNG");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .navbar-light .navbar-nav .nav-link {
   color:#fff;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

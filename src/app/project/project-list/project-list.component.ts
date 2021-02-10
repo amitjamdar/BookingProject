@@ -8,6 +8,7 @@ import { UtilService } from 'src/app/utils.service';
 import { project } from '../project.interface';
 import { ProjectService } from '../project.service';
 
+
 @Component({
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
@@ -16,7 +17,10 @@ import { ProjectService } from '../project.service';
 export class ProjectListComponent implements OnInit {
   projectFeedbackList = [];
   projectFeedbackCols: string[];
-
+  page = 1;
+  pageSize: number;
+  currentPage = 1;
+  itemsPerPage = 5;
   stars: number[] = [1, 2, 3, 4, 5];
   genderList:string[] = ['Male', 'Female'];
   gradeList:string[] = ['3.x','4.x','5.x'];
@@ -41,7 +45,14 @@ export class ProjectListComponent implements OnInit {
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
   ) {}
-
+  
+  public onPageChange(pageNum: number): void {
+    this.pageSize = this.itemsPerPage*(pageNum - 1);
+  }
+  
+  public changePagesize(num: number): void {
+  this.itemsPerPage = this.pageSize + num;
+}
   ngOnInit(): void {
     this.projectService.getAllProjectFeedback().subscribe(
       (feedbacks: any) => {
@@ -143,7 +154,8 @@ export class ProjectListComponent implements OnInit {
   onClick(event: any){
     this.showModal = true; // Show-Hide Modal Check
     this.submitted = false;
-    this.projectFeedbackdata = [];
+    this.feedbackForm.reset();
+    this.editMode = false;
   }
   hide()
   {

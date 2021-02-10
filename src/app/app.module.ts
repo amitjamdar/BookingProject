@@ -14,6 +14,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { NestedTitlePipe } from './title.pipe';
 import { ProjectFeedbackComponent } from './project/project-feedback/project-feedback.component';
 import { LogoutComponent } from './logout/logout.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,7 @@ import { LogoutComponent } from './logout/logout.component';
     ReactiveFormsModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule 
   ],
   providers: [],
   bootstrap: [AppComponent],
