@@ -22,7 +22,7 @@
       "fname": "Nancy",
       "lname": "Avlita",
       "eid": 4343,
-      "grade": "3.x",
+      "grade": "4.x",
       "gender": "Female",
       "odc": "ODC",
       "bu": "BU",
@@ -44,7 +44,7 @@
       "fname": "Adam",
       "lname": "Bello",
       "eid": 572,
-      "grade": "5.x",
+      "grade": "3.x",
       "gender": "Male",
       "odc": "NON-ODC",
       "bu": "TECH",
@@ -74,26 +74,15 @@
       "id": 5
     },
     {
-      "fname": "Margaret",
-      "lname": "Peacock",
-      "eid": 32434,
-      "grade": "4.x",
-      "gender": "Female",
-      "odc": "NON-ODC",
-      "bu": "TECH",
-      "project": "project3",
-      "id": 6
-    },
-    {
-      "fname": "Macfee",
-      "lname": "Norton",
-      "eid": 9862,
-      "grade": "4.x",
+      "fname": "Dash",
+      "lname": "Boardq",
+      "eid": 987654,
+      "grade": "5.x",
       "gender": "Female",
       "odc": "ODC",
       "bu": "TECH",
       "project": "project3",
-      "id": 7
+      "id": 6
     }
   ],
   "projects": [

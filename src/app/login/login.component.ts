@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   ) {}
 
   loginForm: FormGroup;
-  isSubmitted = false;
+  submitted = false;
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     console.log(this.loginForm.value);
-    this.isSubmitted = true;
+    this.submitted = true;
     if (this.loginForm.invalid) {
       return;
     }

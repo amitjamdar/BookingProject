@@ -7,14 +7,18 @@ import { User } from 'src/app/login/user.interface';
 import { UtilService } from 'src/app/utils.service';
 import { project } from '../project.interface';
 import { ProjectService } from '../project.service';
-
-
+import { take } from 'rxjs/operators';
+import { ModalService } from 'src/app/modal/modal.service';
 @Component({
   selector: 'app-project-list',
   templateUrl: './project-list.component.html',
   styleUrls: ['./project-list.component.css'],
 })
 export class ProjectListComponent implements OnInit {
+  
+  confirmedResult: boolean;
+  inputResult: string;
+  messageResult: boolean;
   projectFeedbackList = [];
   projectFeedbackCols: string[];
   page = 1;
@@ -44,8 +48,9 @@ export class ProjectListComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
+    private modalService: ModalService
   ) {}
-  
+
   public onPageChange(pageNum: number): void {
     this.pageSize = this.itemsPerPage*(pageNum - 1);
   }
@@ -137,15 +142,24 @@ export class ProjectListComponent implements OnInit {
       });
     });
   }
+
   feedbackDelete(feedbackId) {
-    if (window.confirm('Are you sure, you want to delete?')){
-      this.projectService.deleteFeedback(feedbackId).subscribe((data) => {
-        if (data?.status === 200 && data?.ok === true) {
-          this.router.navigate([this.router.url]);
+    this.modalService.confirm(
+      'Are you sure want to delete ? This action cananot be undone'
+    ).pipe(
+      take(1) // take() manages unsubscription for us
+    ).subscribe(result => {
+        this.confirmedResult = result;
+        if(this.confirmedResult){
+          this.projectService.deleteFeedback(feedbackId).subscribe((data) => {
+            if (data?.status === 200 && data?.ok === true) {
+              this.router.navigate([this.router.url]);
+            }
+          });
         }
       });
-    }
   }
+
   ngOnDestroy() {
     if (this.mySubscription) {
       this.mySubscription.unsubscribe();

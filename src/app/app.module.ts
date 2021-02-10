@@ -15,6 +15,7 @@ import { NestedTitlePipe } from './title.pipe';
 import { ProjectFeedbackComponent } from './project/project-feedback/project-feedback.component';
 import { LogoutComponent } from './logout/logout.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmDialogComponent } from './modal/confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     NestedTitlePipe,
     ProjectFeedbackComponent,
     LogoutComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
